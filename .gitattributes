@@ -1,0 +1,6 @@
+# For most files handle line endings automatically
+* text=auto
+
+# For some files used by Laravel homestead, retain the Unix style line endings
+aliases text eol=lf
+serve.sh text eol=lf
