@@ -79,3 +79,23 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+/*
+|--------------------------------------------------------------------------
+| Require The Composers File
+|--------------------------------------------------------------------------
+*/
+
+require app_path().'/composers.php';
+
+
+/*
+ |-------------------------------------------------------------------------
+ | Log sql for debugging purposes.
+ |-------------------------------------------------------------------------
+ */
+ 
+Event::listen("illuminate.query", function($query, $bindings, $time, $name) {
+    \Log::debug($query."\n");
+    \Log::debug(json_encode($bindings)."\n");
+});

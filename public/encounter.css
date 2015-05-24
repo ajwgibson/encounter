@@ -1,0 +1,11 @@
+.page-header {
+	margin-top: 20px;
+}
+
+li.list-group-item {
+	margin-bottom: 10px;
+}
+
+.tickets {
+	width: 45px !important;
+}

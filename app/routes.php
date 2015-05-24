@@ -4,14 +4,15 @@
 |--------------------------------------------------------------------------
 | Application Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the Closure to execute when that URI is requested.
-|
 */
 
-Route::get('/', function()
+Route::group(array('before' => 'auth.basic'), function()
 {
-	return View::make('hello');
+	Route::get('/', array('as' => 'register', 'uses' => 'RegistrationController@register'));
+	Route::get('bookings', array('as' => 'bookings', 'uses' => 'BookingController@index'));
+	Route::get('registrations', array('as' => 'registrations', 'uses' => 'RegistrationController@index'));
+	Route::post('search', array('as' => 'register.search', 'uses' => 'RegistrationController@search'));
+	Route::post('register_booking', array('as' => 'register.booking', 'uses' => 'RegistrationController@register_booking'));
+	Route::post('register_nobooking', array('as' => 'register.nobooking', 'uses' => 'RegistrationController@register_no_booking'));
 });
+

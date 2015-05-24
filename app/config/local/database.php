@@ -23,7 +23,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'homestead',
+			'database'  => 'encounter',
 			'username'  => 'homestead',
 			'password'  => 'secret',
 			'charset'   => 'utf8',
@@ -34,7 +34,7 @@ return array(
 		'pgsql' => array(
 			'driver'   => 'pgsql',
 			'host'     => 'localhost',
-			'database' => 'homestead',
+			'database' => 'encounter',
 			'username' => 'homestead',
 			'password' => 'secret',
 			'charset'  => 'utf8',
