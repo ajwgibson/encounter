@@ -9,3 +9,13 @@ li.list-group-item {
 .tickets {
 	width: 45px !important;
 }
+
+.table,
+.table-responsive {
+    margin-top: 10px;
+}
+
+.filter .panel {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
