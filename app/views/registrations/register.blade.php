@@ -115,7 +115,8 @@
 				<ul class="list-group">
 				    <li class="list-group-item">Today <span class="badge alert-info">{{{ $registration_count_today }}}</span></li>
 				    <li class="list-group-item">Total <span class="badge alert-info">{{{ $registration_count_total }}}</span></li>
-				  </ul>
+				    <li class="list-group-item">Expected <span class="badge alert-info">{{{ $expected_count }}}</span></li>
+				</ul>
 			</div>
 		</div>
 

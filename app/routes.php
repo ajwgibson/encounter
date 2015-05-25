@@ -8,7 +8,9 @@
 
 Route::group(array('before' => 'auth.basic'), function()
 {
-	Route::get('/', array('as' => 'register', 'uses' => 'RegistrationController@register'));
+	Route::get('/', array('as' => 'home', 'uses' => 'HomeController@index'));
+
+	Route::get('register', array('as' => 'register', 'uses' => 'RegistrationController@register'));
 	Route::post('search', array('as' => 'register.search', 'uses' => 'RegistrationController@search'));
 	Route::post('register_booking', array('as' => 'register.booking', 'uses' => 'RegistrationController@register_booking'));
 	Route::post('register_nobooking', array('as' => 'register.nobooking', 'uses' => 'RegistrationController@register_no_booking'));
