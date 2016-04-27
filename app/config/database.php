@@ -45,18 +45,16 @@ return array(
 	*/
 
 	'connections' => array(
-
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'encounter',
-			'username'  => 'homestead',
-			'password'  => 'secret',
+			'database'  => getenv('ENCOUNTER_DATABASE'),
+			'username'  => getenv('ENCOUNTER_USERNAME'),
+			'password'  => getenv('ENCOUNTER_PASSWORD'),
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
 		),
-
 	),
 
 	/*

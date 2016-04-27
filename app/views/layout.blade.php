@@ -56,7 +56,7 @@
 
             <div class="page-header">
                 <img src="{{ asset('images/banner.jpg') }}" class="img-responsive" alt="Encounter more banner">
-                <h1>Encounter More 2015 @if ($subtitle) <span class="subtitle"><small>&raquo; {{ $subtitle }}</small></span> @endif</h1>
+                <h1>Encounter More 2016 @if ($subtitle) <span class="subtitle"><small>&raquo; {{ $subtitle }}</small></span> @endif</h1>
             </div>
 
             <div>
