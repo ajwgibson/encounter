@@ -11,7 +11,7 @@
 			<div class="col-sm-6">
 				<ul class="list-group">
 				    <li class="list-group-item"><span style="background-color: #a6cee3; border-radius: 5px;">&nbsp;&nbsp;&nbsp;&nbsp;</span> Registered <span class="badge alert-info">{{{ $registration_count_total }}}</span></li>
-				    <li class="list-group-item"><span style="background-color: #1f78b4; border-radius: 5px;">&nbsp;&nbsp;&nbsp;&nbsp;</span> Still to register <span class="badge alert-info">{{{ $still_to_register}}}</span></li>
+				    <li class="list-group-item"><span style="background-color: #1f78b4; border-radius: 5px;">&nbsp;&nbsp;&nbsp;&nbsp;</span> Still to register <span class="badge alert-info">{{{ $still_to_register }}}</span></li>
 				</ul>
 			</div>
 		</div>
@@ -50,7 +50,7 @@
 
 	var registration_status_data = [
 		{ value: {{{ $registration_count_total }}}, label: 'Registered', color: '#a6cee3', highlight: ColorLuminance('#a6cee3', 0.2) },
-		{ value: {{{ $expected_count - $registration_count_total }}}, label: 'Still to register', color: '#1f78b4', highlight: ColorLuminance('#1f78b4', 0.2) }
+		{ value: {{{ $still_to_register }}}, label: 'Still to register', color: '#1f78b4', highlight: ColorLuminance('#1f78b4', 0.2) }
 	];
 
 	var ctx1 = document.getElementById("registrationStatusChart").getContext("2d");
