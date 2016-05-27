@@ -8,7 +8,10 @@ View::composer(array('home', 'registrations.register'), function($view)
 
 	$expected = Booking::get()->sum('tickets');
 
+	$still_to_register = $all - Registration::whereNull('booking_id')->get()->sum('tickets');
+
 	$view->with('registration_count_total', $all)
 		 ->with('registration_count_today', $today)
-		 ->with('expected_count', $expected);
+		 ->with('expected_count', $expected)
+		 ->with('still_to_register', $still_to_register);
 });

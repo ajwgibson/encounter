@@ -11,7 +11,7 @@
 			<div class="col-sm-6">
 				<ul class="list-group">
 				    <li class="list-group-item"><span style="background-color: #a6cee3; border-radius: 5px;">&nbsp;&nbsp;&nbsp;&nbsp;</span> Registered <span class="badge alert-info">{{{ $registration_count_total }}}</span></li>
-				    <li class="list-group-item"><span style="background-color: #1f78b4; border-radius: 5px;">&nbsp;&nbsp;&nbsp;&nbsp;</span> Still to register <span class="badge alert-info">{{{ $expected_count - $registration_count_total }}}</span></li>
+				    <li class="list-group-item"><span style="background-color: #1f78b4; border-radius: 5px;">&nbsp;&nbsp;&nbsp;&nbsp;</span> Still to register <span class="badge alert-info">{{{ $still_to_register}}}</span></li>
 				</ul>
 			</div>
 		</div>
