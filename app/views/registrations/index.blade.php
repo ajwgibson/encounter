@@ -22,7 +22,7 @@
     	<div class="col-sm-6">
 
             <div class="form-group">
-                {{ Form::label('filter_day', 'Source', array('class' => 'control-label')) }}
+                {{ Form::label('filter_day', 'Day', array('class' => 'control-label')) }}
                 <div>
                 	<label class="checkbox-inline">{{ Form::checkbox('filter_thursday', true, $filter_thursday) }} Thursday</label><br/>
                 	<label class="checkbox-inline">{{ Form::checkbox('filter_friday', true, $filter_friday) }} Friday</label><br/>
@@ -49,9 +49,9 @@
             {{ Form::submit('Apply filters', array('class' => 'btn btn-info')) }}
 
             {{ link_to_route(
-                'registrations.resetfilter', 
-                'Reset filters', 
-                $parameters = array( ), 
+                'registrations.resetfilter',
+                'Reset filters',
+                $parameters = array( ),
                 $attributes = array( 'class' => 'btn btn-default' ) ) }}
 
         </div>
@@ -75,7 +75,7 @@
 		<tr>
 			<td>{{{ $registration->name() }}}</td>
 			<td>{{{ $registration->tickets }}}</td>
-			<td>{{{ $registration->created_at }}}</td>
+			<td>{{{ $registration->created_at->setTimezone('Europe/London')->format('d-m-Y H:i:s') }}}</td>
 		</tr>
 	@endforeach
 	</tbody>

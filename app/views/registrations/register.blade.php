@@ -52,7 +52,7 @@
             </p>
         </div>
 
-        {{ Form::submit('Search', array ('class' => 'btn btn-default')) }} 
+        {{ Form::submit('Search', array ('class' => 'btn btn-default')) }}
 
         {{ Form::close() }}
 
@@ -60,48 +60,57 @@
 
         <p style="margin-top: 20px;">The following bookings have matched the search criteria. Pick one to continue or search again.</p>
 
-        <div class="list-group" style="width: 80%;">
         	@foreach ($bookings as $booking)
-			<div class="list-group-item">
-				
-				<div class="col-xs-6">
-					<dl class="dl-horizontal">
-						<dt>Customer</dt>
-						<dd class="text-uppercase"><strong>{{{ $booking->first }}} {{{ $booking->last }}}</strong></dd>
-						<dt>Source</dt>
-						<dd>{{{ $booking->source }}}</dd>
-						<dt>Ticket numbers</dt>
-						<dd>{{{ $booking->numbers }}}</dd>
-						<dt>Booked</dt>
-						<dd>{{{ $booking->tickets }}}</dd>
-						<dt>Registered</dt>
-						<dd>{{{ $booking->registration_count() }}}</dd>
-					</dl>
-					<div class="clearfix">&nbsp;</div>
-				</div>
+          <div class="panel panel-info panel-search-result">
+            <div class="panel-heading">
+                <h3 class="panel-title text-uppercase">{{{ $booking->name() }}}</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-xs-6">
+                	<dl class="dl-horizontal">
+                		<dt>Source</dt>
+                		<dd>{{{ $booking->source }}}</dd>
+                		<dt>Ticket numbers</dt>
+                		<dd>{{{ $booking->numbers }}}</dd>
+                    <dt>Day(s)</dt>
+                    <dd>{{{ $booking->day_or_days() }}}</dd>
+                		<dt>Booked</dt>
+                		<dd>{{{ $booking->tickets }}}</dd>
+                		<dt>Registered</dt>
+                		<dd>{{{ $booking->registration_count() }}}</dd>
+                	</dl>
+                </div>
+        				<div class="col-xs-6">
+        					<div class="pull-right">
+                    @if ($booking->registered())
+                    <span class="text-muted">
+                      This booking is already fully registered.
+                    </span>
+                    @else
+                      @if ($booking->can_register_today())
+          						{{ Form::open(array('route' => 'register.booking', 'class' => 'form-inline')) }}
+          						{{ Form::hidden('booking_id', $booking->id) }}
+          						<div class="form-group">
+  		            		      {{ Form::label('tickets', 'Tickets', array ('class' => 'control-label')) }}
+      	                		{{ Form::text('tickets', $booking->tickets - $booking->registration_count(), array ('class' => 'form-control tickets')) }}
+  	                	</div>
+          						{{ Form::submit('Register', array ('class' => 'btn btn-primary')) }}
+          						{{ Form::close() }}
+                      @else
+                      <span class="text-muted">
+                        This booking cannot be registered today.
+                      </span>
+                      @endif
+                    @endif
+        					</div>
+        				</div>
+              </div>
+            </div>
+          </div>
+          @endforeach
 
-				<div class="col-xs-6">
-					<div class="pull-right">
-						{{ Form::open(array('route' => 'register.booking', 'class' => 'form-inline')) }}
-						{{ Form::hidden('booking_id', $booking->id) }}
-						<div class="form-group">
-		            		{{ Form::label('tickets', 'Tickets', array ('class' => 'control-label')) }}
-	                		{{ Form::text('tickets', $booking->tickets - $booking->registration_count(), array ('class' => 'form-control tickets')) }}
-	                	</div>
-						{{ Form::submit('Register', array ('class' => 'btn btn-primary')) }} 
-						{{ Form::close() }}
-					</div>
-					<div class="clearfix">&nbsp;</div>
-				</div>
-				
-				<div class="clearfix">&nbsp;</div>
-
-			</div>
-			<div class="clearfix">&nbsp;</div>
-            @endforeach
-		</div>
-
-		@endif
+        @endif
 
     </div>
 
@@ -121,7 +130,7 @@
 		</div>
 
         <div class="panel panel-default">
-			
+
 			<div class="panel-heading">
 				<h3 class="panel-title">On the day booking &amp; registration</h3>
 			</div>
@@ -165,7 +174,7 @@
 		            </div>
 		        </div>
 
-		        {{ Form::submit('Register', array ('class' => 'btn btn-info')) }} 
+		        {{ Form::submit('Register', array ('class' => 'btn btn-info')) }}
 
 		        {{ Form::close() }}
 	        </div>
