@@ -37,6 +37,10 @@
                     </div>
                 </div>
             </div>
+            <p class="help-block">
+                <em><strong>Hint:</strong> Please include leading zeros for church tickets e.g. 0001 or 0121. <br/>
+                Church tickets have 4 digits in total.</em>
+            </p>
         </div>
 
         <div class="form-group">
