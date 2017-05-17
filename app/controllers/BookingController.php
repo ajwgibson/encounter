@@ -46,7 +46,7 @@ class BookingController extends BaseController {
 
 		$days =
 			array('' => '', 'ALL' => 'ALL') +
-			Booking::whereNotNull('ticket_date')->lists('ticket_date','ticket_date');
+			Booking::whereNotNull('ticket_date')->orderBy('ticket_date')->lists('ticket_date','ticket_date');
 
 		$this->layout->content =
 			View::make('bookings.index')
